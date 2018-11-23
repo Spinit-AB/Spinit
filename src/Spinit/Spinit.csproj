@@ -6,6 +6,7 @@
     <Version>5.0.0</Version>
     <PackageIconUrl>http://nuget.spinit.local/spinit-logo-nuget.png</PackageIconUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <RepositoryUrl>https://github.com/spinit-ab/spinit</RepositoryUrl>
   </PropertyGroup>
 
 </Project>
