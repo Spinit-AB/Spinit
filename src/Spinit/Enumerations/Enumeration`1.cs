@@ -130,7 +130,7 @@ namespace Spinit.Enumerations
         {
             var enumerationType = typeof(TEnumeration);
             return
-                enumerationType.GetRuntimeFields()
+                enumerationType.GetTypeInfo().GetFields(BindingFlags.Public | BindingFlags.Static | BindingFlags.DeclaredOnly)
                                .Where(info => enumerationType.GetTypeInfo().IsAssignableFrom(info.FieldType))
                                .Select(info => info.GetValue(null))
                                .Cast<TEnumeration>()
