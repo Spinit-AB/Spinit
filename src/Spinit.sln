@@ -3,9 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.106
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spinit", "Spinit\Spinit.csproj", "{1EE30D5D-243E-45A3-8F17-A7E1A16EDDEE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spinit", "Spinit\Spinit.csproj", "{1EE30D5D-243E-45A3-8F17-A7E1A16EDDEE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spinit.Security", "Spinit.Security\Spinit.Security.csproj", "{8B84285F-5DB1-4EF2-B75E-932D98BC3B22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spinit.Data.Export", "Spinit.Data.Export\Spinit.Data.Export.csproj", "{988AD85B-7481-4EA6-92EC-E61D3B7A5BD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spinit.Data.Export.Test", "Spinit.Data.Export.Test\Spinit.Data.Export.Test.csproj", "{16DA551E-12E1-4436-A312-8C7905F08FD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spinit.IO", "Spinit.IO\Spinit.IO.csproj", "{FB413B10-0CC1-4AB9-9759-F63775497DC4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +32,24 @@ Global
 		{8B84285F-5DB1-4EF2-B75E-932D98BC3B22}.Nuget|Any CPU.Build.0 = Debug|Any CPU
 		{8B84285F-5DB1-4EF2-B75E-932D98BC3B22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B84285F-5DB1-4EF2-B75E-932D98BC3B22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{988AD85B-7481-4EA6-92EC-E61D3B7A5BD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{988AD85B-7481-4EA6-92EC-E61D3B7A5BD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{988AD85B-7481-4EA6-92EC-E61D3B7A5BD1}.Nuget|Any CPU.ActiveCfg = Debug|Any CPU
+		{988AD85B-7481-4EA6-92EC-E61D3B7A5BD1}.Nuget|Any CPU.Build.0 = Debug|Any CPU
+		{988AD85B-7481-4EA6-92EC-E61D3B7A5BD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{988AD85B-7481-4EA6-92EC-E61D3B7A5BD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16DA551E-12E1-4436-A312-8C7905F08FD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16DA551E-12E1-4436-A312-8C7905F08FD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16DA551E-12E1-4436-A312-8C7905F08FD1}.Nuget|Any CPU.ActiveCfg = Debug|Any CPU
+		{16DA551E-12E1-4436-A312-8C7905F08FD1}.Nuget|Any CPU.Build.0 = Debug|Any CPU
+		{16DA551E-12E1-4436-A312-8C7905F08FD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16DA551E-12E1-4436-A312-8C7905F08FD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB413B10-0CC1-4AB9-9759-F63775497DC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB413B10-0CC1-4AB9-9759-F63775497DC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB413B10-0CC1-4AB9-9759-F63775497DC4}.Nuget|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB413B10-0CC1-4AB9-9759-F63775497DC4}.Nuget|Any CPU.Build.0 = Debug|Any CPU
+		{FB413B10-0CC1-4AB9-9759-F63775497DC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB413B10-0CC1-4AB9-9759-F63775497DC4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
