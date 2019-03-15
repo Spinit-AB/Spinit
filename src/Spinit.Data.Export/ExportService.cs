@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using Spinit.Data.Export.Data;
 using Spinit.Data.Export.Data.Implementation;
 
@@ -30,7 +29,7 @@ namespace Spinit.Data.Export
 
         private void WriteHeaderRow(ITabularData data, Type type)
         {
-            foreach (var info in type.GetProperties())
+            foreach (var info in ColumnIncluder.GetProperties(type))
             {
                 if (ColumnIncluder.ShouldIncludeProperty(info))
                 {
@@ -50,7 +49,7 @@ namespace Spinit.Data.Export
         private void WriteRow<T>(ITabularData data, T dataRow)
         {
             var row = data.AddRow();
-            foreach (var info in dataRow.GetType().GetProperties())
+            foreach (var info in ColumnIncluder.GetProperties(typeof(T)))
             {
                 if (ColumnIncluder.ShouldIncludeProperty(info))
                 {

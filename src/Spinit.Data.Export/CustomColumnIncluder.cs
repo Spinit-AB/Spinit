@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 
 namespace Spinit.Data.Export
@@ -16,6 +17,8 @@ namespace Spinit.Data.Export
         {
             return new CustomColumnIncluder(shouldInclude);
         }
+
+        public virtual IEnumerable<PropertyInfo> GetProperties(Type type) => type.GetProperties();
 
         public bool ShouldIncludeProperty(PropertyInfo propertyInfo)
         {

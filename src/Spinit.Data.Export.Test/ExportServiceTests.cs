@@ -1,4 +1,8 @@
-﻿using Shouldly;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using Shouldly;
 using Xunit;
 
 namespace Spinit.Data.Export.UnitTest
@@ -46,6 +50,23 @@ namespace Spinit.Data.Export.UnitTest
             sut.ColumnIncluder = CustomColumnIncluder.Create(x => x.Name.EndsWith("Export"));
             var result = sut.CreateTabularData(T5.Build());
             result.Columns.Count.ShouldBe(1);
+        }
+
+        [Fact]
+        public void ColumnOrderCanBeCustomized()
+        {
+            var sut = new ExportService
+            {
+                ColumnIncluder = new ReversedColumnIncluder()
+            };
+            var result = sut.CreateTabularData(T1.Build());
+            result.Columns[0].ColumnName.ShouldBe("Member2");
+            result.Columns[1].ColumnName.ShouldBe("Member1");
+        }
+
+        private class ReversedColumnIncluder : DefaultColumnIncluder
+        {
+            public override IEnumerable<PropertyInfo> GetProperties(Type type) => base.GetProperties(type).Reverse();
         }
     }
 }
