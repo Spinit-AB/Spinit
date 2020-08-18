@@ -1,4 +1,4 @@
-# ApiVersionOperationFilter
+# ApiVersion
 Example usage:
 
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -20,36 +20,7 @@ Example usage:
     {
         services.AddSwaggerGen(c =>
         {
-            foreach (var description in _provider.ApiVersionDescriptions)
-            {
-                c.SwaggerDoc(
-                    description.GroupName,
-                    new Info
-                    {
-                        Title = "Some Title",
-                        Version = description.GroupName,
-                        Description = description.IsDeprecated ? "This API version has been deprecated." : string.Empty
-                    });
-            }
-
-            c.DocInclusionPredicate((docName, apiDesc) =>
-            {
-                var actionApiVersionModel = apiDesc.ActionDescriptor?.GetApiVersion();
-
-                if (actionApiVersionModel == null)
-                {
-                    return true;
-                }
-
-                if (actionApiVersionModel.DeclaredApiVersions.Any())
-                {
-                    return actionApiVersionModel.DeclaredApiVersions.Any(v => docName == $"v{v.ToString()}");
-                }
-
-                return actionApiVersionModel.ImplementedApiVersions.Any(v => docName == $"v{v.ToString()}");
-            });
-
-            c.OperationFilter<ApiVersionOperationFilter>();
+            c.AddApiVersion(_provider, "Example API");
         });
     }
 
