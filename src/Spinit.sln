@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spinit.Data.Export.Test", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spinit.IO", "Spinit.IO\Spinit.IO.csproj", "{FB413B10-0CC1-4AB9-9759-F63775497DC4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spinit.Web.Swagger", "Spinit.Swagger\Spinit.Web.Swagger.csproj", "{8250623F-C29A-49D4-8917-E464A9D9B732}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spinit.Web.Swagger", "Spinit.Web.Swagger\Spinit.Web.Swagger.csproj", "{8250623F-C29A-49D4-8917-E464A9D9B732}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
