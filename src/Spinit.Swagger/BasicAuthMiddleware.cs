@@ -7,14 +7,14 @@ using Microsoft.Extensions.Configuration;
 
 namespace Spinit.Web.Swagger
 {
-    public class BasicAuth
+    public class BasicAuthMiddleware
     {
         private readonly RequestDelegate _next;
         private readonly string _username;
         private readonly string _password;
         private readonly bool _skipLocally = true;
 
-        public BasicAuth(RequestDelegate next, IConfiguration configuration)
+        public BasicAuthMiddleware(RequestDelegate next, IConfiguration configuration)
         {
             _next = next;
             var section = configuration.GetSection("SwaggerAuth");
@@ -61,10 +61,17 @@ namespace Spinit.Web.Swagger
 
             if (authHeader != null && authHeader.StartsWith("Basic "))
             {
-                var (username, password) = ParseCredentials(authHeader);
-                if (IsAuthorized(username, password))
+                try
                 {
-                    return true;
+                    var (username, password) = ParseCredentials(authHeader);
+                    if (IsAuthorized(username, password))
+                    {
+                        return true;
+                    }
+                }
+                catch (ParsingException)
+                {
+                    return false;
                 }
             }
 
@@ -73,11 +80,23 @@ namespace Spinit.Web.Swagger
 
         private (string username, string password) ParseCredentials(string authHeader)
         {
-            var encodedUsernamePassword = authHeader.Split(' ')[1]?.Trim();
+            var authHeaderSplit = authHeader.Split(' ');
+            if (authHeaderSplit.Length < 2)
+            {
+                throw new ParsingException();
+            }
+
+            var encodedUsernamePassword = authHeaderSplit[1]?.Trim();
             var decodedUsernamePassword = Encoding.UTF8.GetString(Convert.FromBase64String(encodedUsernamePassword));
 
-            var username = decodedUsernamePassword.Split(':')[0];
-            var password = decodedUsernamePassword.Split(':')[1];
+            var decodedValues = decodedUsernamePassword.Split(':');
+            if (decodedValues.Length < 2)
+            {
+                throw new ParsingException();
+            }
+
+            var username = decodedValues[0];
+            var password = decodedValues[1];
             return (username, password);
         }
 
@@ -102,6 +121,10 @@ namespace Spinit.Web.Swagger
             }
 
             return false;
+        }
+
+        private class ParsingException : Exception
+        {
         }
     }
 }
