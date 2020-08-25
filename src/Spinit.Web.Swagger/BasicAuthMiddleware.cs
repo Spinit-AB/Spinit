@@ -86,7 +86,7 @@ namespace Spinit.Web.Swagger
                 throw new ParsingException();
             }
 
-            var encodedUsernamePassword = authHeaderSplit[1]?.Trim();
+            var encodedUsernamePassword = authHeaderSplit[1]?.Trim() ?? string.Empty;
             var decodedUsernamePassword = Encoding.UTF8.GetString(Convert.FromBase64String(encodedUsernamePassword));
 
             var decodedValues = decodedUsernamePassword.Split(':');
@@ -111,7 +111,7 @@ namespace Spinit.Web.Swagger
             {
                 return true;
             }
-            if (context.Connection.RemoteIpAddress.Equals(context.Connection.LocalIpAddress))
+            if (context.Connection.RemoteIpAddress != null && context.Connection.RemoteIpAddress.Equals(context.Connection.LocalIpAddress))
             {
                 return true;
             }

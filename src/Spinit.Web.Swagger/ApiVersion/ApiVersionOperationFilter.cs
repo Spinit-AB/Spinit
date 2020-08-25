@@ -1,13 +1,14 @@
 ﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
-using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.OpenApi.Any;
+using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace Spinit.Web.Swagger.ApiVersion
 {
     internal class ApiVersionOperationFilter : IOperationFilter
     {
-        public void Apply(Operation operation, OperationFilterContext context)
+        public void Apply(OpenApiOperation operation, OperationFilterContext context)
         {
             var apiDescription = context.ApiDescription;
 
@@ -18,7 +19,7 @@ namespace Spinit.Web.Swagger.ApiVersion
                 return;
             }
 
-            foreach (var parameter in operation.Parameters.OfType<NonBodyParameter>())
+            foreach (var parameter in operation.Parameters)
             {
                 var description = apiDescription.ParameterDescriptions.FirstOrDefault(p => p.Name == parameter.Name);
                 if (description == null)
@@ -31,9 +32,9 @@ namespace Spinit.Web.Swagger.ApiVersion
                     parameter.Description = description.ModelMetadata?.Description;
                 }
 
-                if (parameter.Default == null)
+                if (parameter.Schema.Default == null && description.DefaultValue != null)
                 {
-                    parameter.Default = description.DefaultValue;
+                    parameter.Schema.Default = new OpenApiString(description.DefaultValue.ToString());
                 }
 
                 parameter.Required |= description.IsRequired;
