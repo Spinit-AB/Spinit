@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.Abstractions;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.Extensions.DependencyInjection;
-using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace Spinit.Web.Swagger.ApiVersion
@@ -17,7 +17,7 @@ namespace Spinit.Web.Swagger.ApiVersion
             {
                 options.SwaggerDoc(
                     description.GroupName,
-                    new Info
+                    new OpenApiInfo
                     {
                         Title = apiTitle,
                         Version = description.GroupName,
