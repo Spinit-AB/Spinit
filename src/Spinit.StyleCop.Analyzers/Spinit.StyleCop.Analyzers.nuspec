@@ -1,0 +1,17 @@
+﻿<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>Spinit.StyleCop.Analyzers</id>
+    <description>Shared stylecop rules</description>
+    <version>1.0.0</version>
+    <authors>Spinit</authors>
+    <dependencies>
+      <dependency id="StyleCop.Analyzers" version="1.1.118" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="stylecop.json" target="" />
+    <file src="Spinit.StyleCop.Analyzers.ruleset" target="" />
+    <file src="Spinit.StyleCop.Analyzers.props" target="build" />
+  </files>
+</package>
