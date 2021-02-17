@@ -2,7 +2,7 @@
 <Project ToolsVersion="14.0"
   xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <CodeAnalysisRuleSetLocation Condition=" '$(NuGetPackageRoot)' != '' ">$(NuGetPackageRoot)Spinit.StyleCop.Analyzers\1.0.0</CodeAnalysisRuleSetLocation>
+    <CodeAnalysisRuleSetLocation Condition=" '$(NuGetPackageRoot)' != '' ">$(NuGetPackageRoot)Spinit.StyleCop.Analyzers\1.1.0-beta.2</CodeAnalysisRuleSetLocation>
   </PropertyGroup>
   <PropertyGroup>
     <CodeAnalysisRuleSet>$(CodeAnalysisRuleSetLocation)\Spinit.StyleCop.Analyzers.ruleset</CodeAnalysisRuleSet>
