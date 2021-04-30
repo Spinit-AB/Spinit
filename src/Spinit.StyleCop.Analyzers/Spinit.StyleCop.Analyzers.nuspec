@@ -3,10 +3,10 @@
   <metadata>
     <id>Spinit.StyleCop.Analyzers</id>
     <description>Shared stylecop rules</description>
-    <version>1.1.0-beta.2</version>
+    <version>1.1.0-beta.3</version>
     <authors>Spinit</authors>
     <dependencies>
-      <dependency id="StyleCop.Analyzers" version="1.2.0-beta.321" />
+      <dependency id="StyleCop.Analyzers" version="1.2.0-beta.333" />
     </dependencies>
   </metadata>
   <files>
